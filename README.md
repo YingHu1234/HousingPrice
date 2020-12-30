@@ -266,8 +266,5 @@ one-level model: Seasonal ARIMA, auto ARIMA
 
 ## 🎉 Conclusion <a name = "Conclusion"></a>
 
-In conclusion,  regression models are good at capturing trends and seasonality of datasets. Trailing MA works well in catching autocorrelation of residuals. Seasonal ARIMA models and auto ARIMA models can do both. However, for the validation dataset, none of them, 1-level models or 2-level models, get better accuracy than the naive model. Since the seasonal ARIMA model and the auto ARIMA model well incorporate the whole patterns of the dataset, we decide to keep them in forecasting for the entire dataset.
-
-AR models are used to identify relationships between time series lags and apply them in forecasting, but do not include possible relationships between autocorrelation terms of forecast residuals. We build a 2-level model with AR(2) model and a trailing MA for the residuals, which covers most patterns of the partitioned dataset. It produces a more accurate forecast than the naive model.
-Thus we find the best model for the validation dataset is the 2-level model with AR(2) plus trailing MA of the residuals. Applying those forecasts to our entire dataset, we found that the most accurate two forecasts are the 2-level forecast with AR(2) model plus trailing MA for the residuals, and the seasonal ARIMA model. Both have similar low MAPE and RMSE, much more accurate than the naive forecast.
+In conclusion, the results from both two forecasting models were quite similar. Both models forecasted a price drop in January 2020, followed with a slow increase in the upcoming two months, and then a drop after March 2020.
 
