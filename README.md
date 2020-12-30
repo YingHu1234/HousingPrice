@@ -42,7 +42,7 @@ Used Power BI to visualize the overall housing prices from 2007 to 2019:
 
 ## 🎈 Web Scraping and SQL <a name = "webScraping_SQL"></a>
 
-Used Python and SQL for web scraping and restructure a table for time series analysis:
+Used Python and SQL for web scraping：
 
 ![image](https://github.com/YingHu1234/HousingPrice/blob/main/img/Py_1.PNG)
 
@@ -52,10 +52,13 @@ Used Python and SQL for web scraping and restructure a table for time series ana
 
 ![image](https://github.com/YingHu1234/HousingPrice/blob/main/img/Py_4.PNG)
 
-![image](https://github.com/YingHu1234/HousingPrice/blob/main/img/SQL_1.PNG)
+
+Used SQL to restructure a table for time series analysis
+
+![image](https://github.com/YingHu1234/HousingPrice/blob/main/img/SQL_1.PNG|width=100)
 
 
-## ✨ Accuracy for Classification model <a name = "classification_model"></a>
+## ✨ Time Series Analysis <a name = "TimeSeries"></a>
 
 Read document from SQL table and checked the category:
 
