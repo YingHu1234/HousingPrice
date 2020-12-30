@@ -12,7 +12,7 @@
     <br> 
 </p>
 
-## 📝 Table of Contents
+# 📝 Table of Contents
 
 + [Summary](#Summary)
 + [Visualization](#PowerBI)
@@ -22,7 +22,7 @@
 + [Conclusion](#conclusion)
 
 
-## 🧐 Summary <a name = "Summary"></a>
+# 🧐 Summary <a name = "Summary"></a>
 This summary summarizes the steps of getting the forecast by utilizing time series analysis. The first step was to apply the predictability test for the data set. The second step was to process the partition and apply it into one-level forecast models to test which model has the best fit and less overfitting. The third step was to check the performance. The last step was to choose the top two models with the highest accuracy and apply these models to the entire dataset to predict the numbers for the next periods. 
 
 <img src="https://media.giphy.com/media/xULW8JcEC9HUrJjHB6/giphy.gif" width="400" />
@@ -32,14 +32,14 @@ This summary summarizes the steps of getting the forecast by utilizing time seri
 Power BI, SQL, Python or Jupyter Notebook, R
 
 
-## 💭 Visualization <a name = "PowerBI"></a>
+# 💭 Visualization <a name = "PowerBI"></a>
 
 Used Power BI to visualize the overall housing prices from 2007 to 2019:
 
 ![image](https://github.com/YingHu1234/HousingPrice/blob/main/img/PB_1.PNG)
 
 
-## 🎈 Web Scraping and SQL <a name = "webScraping_SQL"></a>
+# 🎈 Web Scraping and SQL <a name = "webScraping_SQL"></a>
 
 Used Python and SQL for web scraping：
 
@@ -60,14 +60,18 @@ Used SQL to restructure a table for time series analysis
 
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_1.PNG" width="500" />
 
-check the trends and seasonality: The pattern can be visualizaed as nonlinear upward trend and seasonality with the low sales at the beginning, middle and end of each year.
+### check the trends and seasonality: 
+The pattern can be visualizaed as nonlinear upward trend and seasonality with the low sales at the beginning, middle and end of each year.
+
+
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_2.PNG" width="500" />
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_3.PNG" width="500" />
 
 
-## 🚀Test Predictability <a name = "Predictability"></a>
+# 🚀Test Predictability <a name = "Predictability"></a>
 
-#Approach 1: used AR(1) model
+## Approach 1: Use Arima() function to fit the AR(1) model for 4-bedroom house sales. The ARIMA model of order = c(1,0,0) gives an AR(1) model.
+
 The coefficient we got is less than 1. This random walk hypothesis means that
 house market prices do not evolve according to a random walk and thus can be
 predicted. 
@@ -75,7 +79,8 @@ predicted.
 
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_4.PNG" width="500" />
 
-#Approach 2: lag-1
+## Approach 2: Apply ACF for differenced prices data (lag-1).
+
 The ACF plot indicates that the autocorrelation coefficients at lag 1 and lag 12
 are out of the horizontal threshold, which can be inferred that time series is not
 random walk.
@@ -84,29 +89,68 @@ random walk.
 
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_6.PNG" width="500" />
 
-###Result:
+### Result:
 Predictability tests of Approach 1 and 2 indicate that this time series of data is
 predictable. 
 
-## 🚀 Models testing <a name = "testing"></a>
+# 🚀 Models testing: Level-one <a name = "1_level"></a>
 
-# Partition and found out the best fit models: 
-# good fit: R-sq & Adj R-sq close to 1 & statistical significant: P-value less than 1
+## Partition and found out the best fit models: 
+### Need to satisfy both conditions: 1. R-sq and Adj-sq--> good fit--> close to 1; 2. P value--> statistical significant --> close to 0
 
+In regression model with linear trend model, p-value is less than 0.05, R-squared is 0.74. It is a good fit and
+statistically significant.
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_7.PNG" width="500" />
+
+In regression model with quadratic trend, p-value is less than 0.05, R-squared is 0.82. It is a good fit and
+statistically significant.
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_8.PNG" width="500" />
+
+In regression model with seasonality, P-value is bigger than 0.05, R-squared is as low as 0.05. This model is not a
+good fit. 
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_9.PNG" width="500" />
+
+In regression model with linear trend and seasonality, p-value is less than 0.05, R-squared is 0.78. This model is not a
+good fit. 
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_10.PNG" width="500" />
+
+In regression model with quadratic trend and seasonality, p-value is less than 0.05, R-squared is 0.86. This model is not a
+good fit. 
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_11.PNG" width="500" />
+
+Trained ARIMA models:
+AR(1) model:
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_12.PNG" width="500" />
+
+AR(2) model:
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_13.PNG" width="500" />
+
+Seasonal ARIMA:
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_14.PNG" width="500" />
 
+Auto ARIMA:
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_15.PNG" width="500" />
 
 
-## 🚀 Decision Tree Regression <a name = "dt_regression"></a>
+### Evaluate and Compare Performance: chose the lowest RMSE and MAPE---> best performance
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_16.PNG" width="500" />
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_17.PNG" width="500" />
 
-Used DT Regression for revenue prediction:
+### Result:
+AR(1), seasonal ARIMA, and auto ARIMA all have lowest MAPE and RMSE; however, Naive model is still the best. 
+In order to find out if there were other models that would get better results than the naïve model, we checked if there's any pattern in the residuals not incorporated by those 1-level models using ACF function. 
+
+
+# 🚀 Models testing: Level-two <a name = "2_level"></a>
+
+### check residuals for each Level-one models:
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_18.PNG" width="500" />
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_19.PNG" width="500" />
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_20.PNG" width="500" />
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_21.PNG" width="500" />
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_22.PNG" width="500" />
+
+
 
 a. Tested accuracy: the errors were very low, which meant the model was good.
 b. For model categores: 
