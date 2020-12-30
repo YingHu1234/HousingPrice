@@ -100,22 +100,27 @@ predictable.
 
 In regression model with linear trend model, p-value is less than 0.05, R-squared is 0.74. It is a good fit and
 statistically significant.
+
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_7.PNG" width="500" />
 
 In regression model with quadratic trend, p-value is less than 0.05, R-squared is 0.82. It is a good fit and
 statistically significant.
+
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_8.PNG" width="500" />
 
 In regression model with seasonality, P-value is bigger than 0.05, R-squared is as low as 0.05. This model is not a
 good fit. 
+
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_9.PNG" width="500" />
 
 In regression model with linear trend and seasonality, p-value is less than 0.05, R-squared is 0.78. This model is not a
 good fit. 
+
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_10.PNG" width="500" />
 
 In regression model with quadratic trend and seasonality, p-value is less than 0.05, R-squared is 0.86. This model is not a
 good fit. 
+
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_11.PNG" width="500" />
 
 Trained ARIMA models:
