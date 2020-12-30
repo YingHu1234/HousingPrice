@@ -43,52 +43,66 @@ Used Power BI to visualize the overall housing prices from 2007 to 2019:
 
 Used Python and SQL for web scraping：
 
-![image](https://github.com/YingHu1234/HousingPrice/blob/main/img/Py_1.PNG)
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/Py_1.PNG" width="700" />
 
-![image](https://github.com/YingHu1234/HousingPrice/blob/main/img/Py_2.PNG)
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/Py_2.PNG" width="700" />
 
-![image](https://github.com/YingHu1234/HousingPrice/blob/main/img/Py_3.PNG)
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/Py_3.PNG" width="700" />
 
-![image](https://github.com/YingHu1234/HousingPrice/blob/main/img/Py_4.PNG)
-![test image size](https://github.com/YingHu1234/HousingPrice/blob/main/img/Py_4.PNG){:height="700px" width="400px"}
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/Py_4.PNG" width="600" />
 
 Used SQL to restructure a table for time series analysis
 
-![image](https://github.com/YingHu1234/HousingPrice/blob/main/img/SQL_1.PNG)
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/SQL_1.PNG" width="600" />
 
 
-## ✨ Time Series Analysis <a name = "TimeSeries"></a>
+## ✨ Step 1: Installed package and ran Time Series:<a name = "Installed"></a>
 
-Read document from SQL table and checked the category:
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_1.PNG" width="500" />
 
-
-![image](https://github.com/YingHu1234/store_products/blob/master/img/1.PNG)
-
-
-![image](https://github.com/YingHu1234/store_products/blob/master/img/2.PNG)
+check the trends and seasonality: The pattern can be visualizaed as nonlinear upward trend and seasonality with the low sales at the beginning, middle and end of each year.
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_2.PNG" width="500" />
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_3.PNG" width="500" />
 
 
-![image](https://github.com/YingHu1234/store_products/blob/master/img/3.PNG)
+## 🚀Test Predictability <a name = "Predictability"></a>
+
+#Approach 1: used AR(1) model
+The coefficient we got is less than 1. This random walk hypothesis means that
+house market prices do not evolve according to a random walk and thus can be
+predicted. 
 
 
-Used 6 Classification models for accuracy test, and DT had the highest accuracy since there were 71 mistakes. 
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_4.PNG" width="500" />
 
-1. Logistic Regression
-2. Decision Tree(DT)
-3. K neighbors classifier (KNN)
-4. Linear Discrininant Analysis (LDA)
-5. Gaussian Naive Bayes(GNB)
-6. SVC
+#Approach 2: lag-1
+The ACF plot indicates that the autocorrelation coefficients at lag 1 and lag 12
+are out of the horizontal threshold, which can be inferred that time series is not
+random walk.
 
-![image](https://github.com/YingHu1234/store_products/blob/master/img/4.PNG)
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_5.PNG" width="500" />
 
-![image](https://github.com/YingHu1234/store_products/blob/master/img/5.PNG)
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_6.PNG" width="500" />
 
-![image](https://github.com/YingHu1234/store_products/blob/master/img/6.PNG)
+###Result:
+Predictability tests of Approach 1 and 2 indicate that this time series of data is
+predictable. 
 
-![image](https://github.com/YingHu1234/store_products/blob/master/img/7.PNG)
+## 🚀 Models testing <a name = "testing"></a>
 
-<img src="https://github.com/YingHu1234/store_products/blob/master/img/7.PNG" width="200" />
+# Partition and found out the best fit models: 
+# good fit: R-sq & Adj R-sq close to 1 & statistical significant: P-value less than 1
+
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_7.PNG" width="500" />
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_8.PNG" width="500" />
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_9.PNG" width="500" />
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_10.PNG" width="500" />
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_11.PNG" width="500" />
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_12.PNG" width="500" />
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_13.PNG" width="500" />
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_14.PNG" width="500" />
+
+
 
 ## 🚀 Decision Tree Regression <a name = "dt_regression"></a>
 
