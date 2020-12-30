@@ -13,20 +13,19 @@
 </p>
 
 ## 📝 Table of Contents
-+ [About](#about)
-+ [Product Details](#product_details)
-+ [SQL_Join](#join)
-+ [Accuracy for Classification model](#classification_model)
-+ [Decision Tree Regression ](#dt_regression)
+
++ [Summary](#Summary)
++ [Visualization](#PowerBI)
++ [Web Scraping and SQL](#webScraping_SQL)
++ [Time Series Analysis ](#TimeSeries)
++ [TS: ](#about)
 + [Conclusion](#conclusion)
 
 
-## 🧐 About <a name = "about"></a>
-To check how the sales and revenue of each product, Power BI would be used for drilling down the specific tables of products for monthly insights details inspection. 
-Also, SQL joined some of the tables and got the cost and profit for classification and regression modeling purposes. 
-Lastly, processed accuracy testing and prediction by using Python scripts.
+## 🧐 Summary <a name = "Summary"></a>
+This summary summarizes the steps of getting the forecast by utilizing time series analysis. The first step was to apply the predictability test for the data set. The second step was to process the partition and apply it into one-level forecast models to test which model has the best fit and less overfitting. The third step was to check the performance. The last step was to choose the top two models with the highest accuracy and apply these models to the entire dataset to predict the numbers for the next periods. 
 
-![Working](https://media.giphy.com/media/20NLMBm0BkUOwNljwv/giphy.gif)
+![Working](https://media.giphy.com/media/xULW8JcEC9HUrJjHB6/giphy.gif)
 
 
 ### Prerequisites
@@ -34,27 +33,26 @@ Lastly, processed accuracy testing and prediction by using Python scripts.
 Power BI, SQL, Python or Jupyter Notebook, R
 
 
-## 💭 Product Details <a name = "product_details"></a>
+## 💭 Visualization <a name = "PowerBI"></a>
 
-Used Power BI to connect each table for monthly details:
+Used Power BI to visualize the overall housing prices from 2007 to 2019:
 
-![image](https://github.com/YingHu1234/store_products/blob/master/img/BI1.PNG)
+![image](https://github.com/YingHu1234/HousingPrice/blob/main/img/PB_1.PNG)
 
-![image](https://github.com/YingHu1234/store_products/blob/master/img/BI2.PNG)
 
-![image](https://github.com/YingHu1234/store_products/blob/master/img/BI3.PNG)
+## 🎈 Web Scraping and SQL <a name = "webScraping_SQL"></a>
 
-## 🎈 SQL-->Join tables <a name = "join"></a>
+Used Python and SQL for web scraping and restructure a table for time series analysis:
 
-Used SQL to join tables and get the cost and revenue by aggregation for 2017 sales:
+![image](https://github.com/YingHu1234/HousingPrice/blob/main/img/Py_1.PNG)
 
-![image](https://github.com/YingHu1234/store_products/blob/master/img/SQL1.PNG)
+![image](https://github.com/YingHu1234/HousingPrice/blob/main/img/Py_2.PNG)
 
-![image](https://github.com/YingHu1234/store_products/blob/master/img/SQL2.PNG)
+![image](https://github.com/YingHu1234/HousingPrice/blob/main/img/Py_3.PNG)
 
-![image](https://github.com/YingHu1234/store_products/blob/master/img/SQL3.PNG)
+![image](https://github.com/YingHu1234/HousingPrice/blob/main/img/Py_4.PNG)
 
-![image](https://github.com/YingHu1234/store_products/blob/master/img/SQL4.PNG)
+![image](https://github.com/YingHu1234/HousingPrice/blob/main/img/SQL_1.PNG)
 
 
 ## ✨ Accuracy for Classification model <a name = "classification_model"></a>
