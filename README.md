@@ -102,7 +102,7 @@ predictable.
 
 ## 🍵 Models testing: Level-one <a name = "1_level"></a>
 
-### Partition and found out the best fit models: 
+### Partition and find the best fit models: 
 #### Need to satisfy both conditions: 1. R-sq and Adj-sq--> good fit--> close to 1; 2. P value--> statistical significant --> close to 0
 
 In regression model with linear trend model, p-value is less than 0.05, R-squared is 0.74. It is a good fit and
@@ -148,7 +148,7 @@ Auto ARIMA:
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_15.PNG" width="500" />
 
 
-#### Evaluate and Compare Performance: chose the lowest RMSE and MAPE---> best performance
+#### Evaluate and Compare Performance: choose the lowest RMSE and MAPE---> best performance
 
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_16.PNG" width="500" />
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_17.PNG" width="500" />
