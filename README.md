@@ -18,7 +18,11 @@
 + [Visualization](#PowerBI)
 + [Web Scraping and SQL](#webScraping_SQL)
 + [Time Series Analysis ](#TimeSeries)
-+ [TS: ](#about)
++ [Test Predictability](#Predictability)
++ [Models testing: Level-one ](#1_level)
++ [Models testing: Level-two](#2_level)
++ [Residuals in Two-level models (two methods)](#residuals)
++ [Predict housing price](#price) 
 + [Conclusion](#conclusion)
 
 
@@ -56,11 +60,14 @@ Used SQL to restructure a table for time series analysis
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/SQL_1.PNG" width="600" />
 
 
-## ✨ Step 1: Installed package and ran Time Series:<a name = "Installed"></a>
+
+# 🎈 Time Series Analysis <a name = "TimeSeries"></a>
+
+### ✨ Installed package and ran Time Series:<a name = "Installed"></a>
 
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_1.PNG" width="500" />
 
-### check the trends and seasonality: 
+###  check the trends and seasonality: 
 The pattern can be visualizaed as nonlinear upward trend and seasonality with the low sales at the beginning, middle and end of each year.
 
 
@@ -68,9 +75,9 @@ The pattern can be visualizaed as nonlinear upward trend and seasonality with th
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_3.PNG" width="500" />
 
 
-# 🚀Test Predictability <a name = "Predictability"></a>
+## 🚀Test Predictability <a name = "Predictability"></a>
 
-## Approach 1: Use Arima() function to fit the AR(1) model for 4-bedroom house sales. The ARIMA model of order = c(1,0,0) gives an AR(1) model.
+### Approach 1: Use Arima() function to fit the AR(1) model for 4-bedroom house sales. The ARIMA model of order = c(1,0,0) gives an AR(1) model.
 
 The coefficient we got is less than 1. This random walk hypothesis means that
 house market prices do not evolve according to a random walk and thus can be
@@ -79,7 +86,7 @@ predicted.
 
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_4.PNG" width="500" />
 
-## Approach 2: Apply ACF for differenced prices data (lag-1).
+### Approach 2: Apply ACF for differenced prices data (lag-1).
 
 The ACF plot indicates that the autocorrelation coefficients at lag 1 and lag 12
 are out of the horizontal threshold, which can be inferred that time series is not
@@ -89,14 +96,14 @@ random walk.
 
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_6.PNG" width="500" />
 
-### Result:
+#### Result:
 Predictability tests of Approach 1 and 2 indicate that this time series of data is
 predictable. 
 
-# 🚀 Models testing: Level-one <a name = "1_level"></a>
+## 🚀 Models testing: Level-one <a name = "1_level"></a>
 
-## Partition and found out the best fit models: 
-### Need to satisfy both conditions: 1. R-sq and Adj-sq--> good fit--> close to 1; 2. P value--> statistical significant --> close to 0
+### Partition and found out the best fit models: 
+#### Need to satisfy both conditions: 1. R-sq and Adj-sq--> good fit--> close to 1; 2. P value--> statistical significant --> close to 0
 
 In regression model with linear trend model, p-value is less than 0.05, R-squared is 0.74. It is a good fit and
 statistically significant.
@@ -141,19 +148,19 @@ Auto ARIMA:
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_15.PNG" width="500" />
 
 
-### Evaluate and Compare Performance: chose the lowest RMSE and MAPE---> best performance
+#### Evaluate and Compare Performance: chose the lowest RMSE and MAPE---> best performance
 
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_16.PNG" width="500" />
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_17.PNG" width="500" />
 
-### Result:
+#### Result:
 AR(1), seasonal ARIMA, and auto ARIMA all have lowest MAPE and RMSE; however, Naive model is still the best. 
 In order to find out if there were other models that would get better results than the naïve model, we checked if there's any pattern in the residuals not incorporated by those 1-level models using ACF function. 
 
 
-# 🚀 Models testing: Level-two <a name = "2_level"></a>
+## 🚀 Models testing: Level-two <a name = "2_level"></a>
 
-### check residuals for each Level-one models:
+#### check residuals for each Level-one models:
 
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_18.PNG" width="500" />
 
@@ -182,9 +189,9 @@ This plot indicates the auto ARIMA model well captured the training dataset’s 
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_37.PNG" width="500" />
 
 
-## Handling Residuals (two methods):
+## Residuals in Two-level models (two methods)<a name = "residuals"></a>
 
-### used AR(1) for residuals:
+#### used AR(1) for residuals:
 
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_23.PNG" width="500" />
 
@@ -204,7 +211,7 @@ This may indicate that the AR(1) model for residuals of residuals for AR(2) Mode
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_27.PNG" width="500" />
 
 
-### used Trailing MA for residuals:
+#### used Trailing MA for residuals:
 
 After using the rollmean() function to develop three trailing MAs for the window
 width of 2, 6, 12, respectively, we applied the accuracy() function to get their
@@ -233,14 +240,14 @@ Seasonality is not totally included, but other correlations were well covered.
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_40.PNG" width="500" />
 
 
-### Result:
+#### Result:
 Both the Seasonal ARIMA model and auto ARIMA model well captured all patterns of partitioned data set. 
 Regression model with trend,Regression model with trend, AR(2) model--> failed to capture
 Therefore, need AR(1) and trailing ma model for residuals. 
 
 
 
-## Two-level forecasts <a name = "Conclusion"></a>
+### Two-level forecasts:
 
 Two-level models include 6 combinations. The first three are a regression model with linear trend plus AR(1) model for its residuals, regression model with linear trend and seasonality plus AR(1) model for its residuals, AR(2) model plus AR(1) model for its residuals.
 
@@ -249,14 +256,14 @@ Two-level models include 6 combinations. The first three are a regression model 
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_31.PNG" width="500" />
 
 
-### Result:
+#### Result:
 AR(2) model with trailing ma was better. Therefore, choose 3 models with best accuracy for forecasting:
 two-level model: AR(2) model+trailing MA residuals
 one-level model: Seasonal ARIMA, auto ARIMA
 
 
-## Predict housing price: <a name = "Conclusion"></a>
-### Apply entire data set to those three models to predict the housing price for the future twelve months.  
+## Predict housing price <a name = "price"></a>
+#### Apply entire data set to those three models to predict the housing price for the future twelve months.  
 
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_32.PNG" width="500" />
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_33.PNG" width="500" />
@@ -264,7 +271,7 @@ one-level model: Seasonal ARIMA, auto ARIMA
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_35.PNG" width="500" />
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_36.PNG" width="500" />
 
-## 🎉 Conclusion <a name = "Conclusion"></a>
+# 🎉 Conclusion <a name = "Conclusion"></a>
 
 In conclusion, the results from both two forecasting models were quite similar. Both models forecasted a price drop in January 2020, followed with a slow increase in the upcoming two months, and then a drop after March 2020.
 
