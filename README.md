@@ -137,6 +137,7 @@ Auto ARIMA:
 
 
 ### Evaluate and Compare Performance: chose the lowest RMSE and MAPE---> best performance
+
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_16.PNG" width="500" />
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_17.PNG" width="500" />
 
@@ -166,14 +167,14 @@ AR(2) model doesn’t catch the pattern of seasonality. There’s correlation si
 
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_21.PNG" width="500" />
 
-
-This plot indicates the auto ARIMA model well captured the training dataset’s pattern.
+The correlation at lag 8 is little bit higher than the threshold, which means this seasonal ARIMA model incorporated all patterns for the training dataset. 
 
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_22.PNG" width="500" />
 
 
+This plot indicates the auto ARIMA model well captured the training dataset’s pattern.
 
-
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_37.PNG" width="500" />
 
 
 ## 🎉 Conclusion <a name = "Conclusion"></a>
