@@ -120,15 +120,19 @@ good fit.
 
 Trained ARIMA models:
 AR(1) model:
+
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_12.PNG" width="500" />
 
 AR(2) model:
+
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_13.PNG" width="500" />
 
 Seasonal ARIMA:
+
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_14.PNG" width="500" />
 
 Auto ARIMA:
+
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_15.PNG" width="500" />
 
 
@@ -144,25 +148,30 @@ In order to find out if there were other models that would get better results th
 # 🚀 Models testing: Level-two <a name = "2_level"></a>
 
 ### check residuals for each Level-one models:
+
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_18.PNG" width="500" />
+
+Seasonality not included, and several autocorrelations out of the threshold, which
+means the regression model with linear trend does not capture all data patterns. 
+
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_19.PNG" width="500" />
+
+Seasonality is close to the threshold, which indicates the model with linear trend
+and seasonality may well cover the seasonality. However, there’s still a lot of
+correlation not incorporated.
+
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_20.PNG" width="500" />
+
+AR(2) model doesn’t catch the pattern of seasonality. There’s correlation significant at lag 2 not included.
+
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_21.PNG" width="500" />
+
+
+This plot indicates the auto ARIMA model well captured the training dataset’s pattern.
+
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_22.PNG" width="500" />
 
 
-
-a. Tested accuracy: the errors were very low, which meant the model was good.
-b. For model categores: 
-    1--> Bikes
-    2--> Components (No sales in 2017）
-    3--> Clothing
-    4--> Accessories
-c. for example: if category is 3, qty is 2, cost is 4.5, price is 6.00, revenue would be 6.25 . shape(1,4)--> 1 observation and 4 features you need to input. 
-
-![image](https://github.com/YingHu1234/store_products/blob/master/img/DTR2.PNG)
-
-![image](https://github.com/YingHu1234/store_products/blob/master/img/DTR3.PNG)
 
 
 
