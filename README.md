@@ -25,8 +25,7 @@
 ## 🧐 Summary <a name = "Summary"></a>
 This summary summarizes the steps of getting the forecast by utilizing time series analysis. The first step was to apply the predictability test for the data set. The second step was to process the partition and apply it into one-level forecast models to test which model has the best fit and less overfitting. The third step was to check the performance. The last step was to choose the top two models with the highest accuracy and apply these models to the entire dataset to predict the numbers for the next periods. 
 
-![Working](https://media.giphy.com/media/xULW8JcEC9HUrJjHB6/giphy.gif)
-
+<img src="https://media.giphy.com/media/xULW8JcEC9HUrJjHB6/giphy.gif" width="400" />
 
 ### Prerequisites
 
@@ -51,11 +50,11 @@ Used Python and SQL for web scraping：
 ![image](https://github.com/YingHu1234/HousingPrice/blob/main/img/Py_3.PNG)
 
 ![image](https://github.com/YingHu1234/HousingPrice/blob/main/img/Py_4.PNG)
-
+![test image size](https://github.com/YingHu1234/HousingPrice/blob/main/img/Py_4.PNG){:height="700px" width="400px"}
 
 Used SQL to restructure a table for time series analysis
 
-![image](https://github.com/YingHu1234/HousingPrice/blob/main/img/SQL_1.PNG|width=100)
+![image](https://github.com/YingHu1234/HousingPrice/blob/main/img/SQL_1.PNG)
 
 
 ## ✨ Time Series Analysis <a name = "TimeSeries"></a>
@@ -89,7 +88,7 @@ Used 6 Classification models for accuracy test, and DT had the highest accuracy 
 
 ![image](https://github.com/YingHu1234/store_products/blob/master/img/7.PNG)
 
-
+<img src="https://github.com/YingHu1234/store_products/blob/master/img/7.PNG" width="200" />
 
 ## 🚀 Decision Tree Regression <a name = "dt_regression"></a>
 
