@@ -26,7 +26,7 @@
 + [Conclusion](#conclusion)
 
 
-# 🧐 Summary <a name = "Summary"></a>
+# 🍯 Summary <a name = "Summary"></a>
 This summary summarizes the steps of getting the forecast by utilizing time series analysis. The first step was to apply the predictability test for the data set. The second step was to process the partition and apply it into one-level forecast models to test which model has the best fit and less overfitting. The third step was to check the performance. The last step was to choose the top two models with the highest accuracy and apply these models to the entire dataset to predict the numbers for the next periods. 
 
 <img src="https://media.giphy.com/media/xULW8JcEC9HUrJjHB6/giphy.gif" width="400" />
@@ -36,14 +36,14 @@ This summary summarizes the steps of getting the forecast by utilizing time seri
 Power BI, SQL, Python or Jupyter Notebook, R
 
 
-# 💭 Visualization <a name = "PowerBI"></a>
+# 🍦 Visualization <a name = "PowerBI"></a>
 
 Used Power BI to visualize the overall housing prices from 2007 to 2019:
 
 ![image](https://github.com/YingHu1234/HousingPrice/blob/main/img/PB_1.PNG)
 
 
-# 🎈 Web Scraping and SQL <a name = "webScraping_SQL"></a>
+# 🍉 Web Scraping and SQL <a name = "webScraping_SQL"></a>
 
 Used Python and SQL for web scraping：
 
@@ -61,9 +61,9 @@ Used SQL to restructure a table for time series analysis
 
 
 
-# 🎈 Time Series Analysis <a name = "TimeSeries"></a>
+# 🎨 Time Series Analysis <a name = "TimeSeries"></a>
 
-### ✨ Installed package and ran Time Series:<a name = "Installed"></a>
+###  Installed package and ran Time Series:<a name = "Installed"></a>
 
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_1.PNG" width="500" />
 
@@ -75,7 +75,7 @@ The pattern can be visualizaed as nonlinear upward trend and seasonality with th
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_3.PNG" width="500" />
 
 
-## 🚀Test Predictability <a name = "Predictability"></a>
+## ✨Test Predictability <a name = "Predictability"></a>
 
 ### Approach 1: Use Arima() function to fit the AR(1) model for 4-bedroom house sales. The ARIMA model of order = c(1,0,0) gives an AR(1) model.
 
@@ -100,7 +100,7 @@ random walk.
 Predictability tests of Approach 1 and 2 indicate that this time series of data is
 predictable. 
 
-## 🚀 Models testing: Level-one <a name = "1_level"></a>
+## 🍵 Models testing: Level-one <a name = "1_level"></a>
 
 ### Partition and found out the best fit models: 
 #### Need to satisfy both conditions: 1. R-sq and Adj-sq--> good fit--> close to 1; 2. P value--> statistical significant --> close to 0
@@ -158,7 +158,7 @@ AR(1), seasonal ARIMA, and auto ARIMA all have lowest MAPE and RMSE; however, Na
 In order to find out if there were other models that would get better results than the naïve model, we checked if there's any pattern in the residuals not incorporated by those 1-level models using ACF function. 
 
 
-## 🚀 Models testing: Level-two <a name = "2_level"></a>
+## 🍲 Models testing: Level-two <a name = "2_level"></a>
 
 #### check residuals for each Level-one models:
 
@@ -189,7 +189,7 @@ This plot indicates the auto ARIMA model well captured the training dataset’s 
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_37.PNG" width="500" />
 
 
-## Residuals in Two-level models (two methods)<a name = "residuals"></a>
+## 🍏 Residuals in Two-level models (two methods)<a name = "residuals"></a>
 
 #### used AR(1) for residuals:
 
@@ -262,7 +262,7 @@ two-level model: AR(2) model+trailing MA residuals
 one-level model: Seasonal ARIMA, auto ARIMA
 
 
-## Predict housing price <a name = "price"></a>
+## ☕ Predict housing price <a name = "price"></a>
 #### Apply entire data set to those three models to predict the housing price for the future twelve months.  
 
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_32.PNG" width="500" />
