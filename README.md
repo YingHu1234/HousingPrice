@@ -182,6 +182,92 @@ This plot indicates the auto ARIMA model well captured the training dataset’s 
 <img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_37.PNG" width="500" />
 
 
+## Handling Residuals (two methods):
+
+### used AR(1) for residuals:
+
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_23.PNG" width="500" />
+
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_24.PNG" width="500" />
+
+Seasonality is a little bit out of the threshold. Most correlations captured. 
+
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_25.PNG" width="500" />
+
+More correlations were incorporated by AR(1) model for residuals of residuals, but there are still three correlations at lag 2, 6 and 9 not captured.
+
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_26.PNG" width="500" />
+
+Seasonality still is not captured, and correlation at lag 2 is not included either.
+This may indicate that the AR(1) model for residuals of residuals for AR(2) Model is not ideal.
+
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_27.PNG" width="500" />
+
+
+### used Trailing MA for residuals:
+
+After using the rollmean() function to develop three trailing MAs for the window
+width of 2, 6, 12, respectively, we applied the accuracy() function to get their
+accuracy measurement. 
+
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_28.PNG" width="500" />
+
+From the accuracy measurements, we see that trailing MAs for the window width
+of 12 is the most accurate. Thus we’ll apply trailing MA with k = 12 to forecast
+residuals. 
+
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_29.PNG" width="500" />
+
+Except for the seasonality, all other correlations were captured. 
+
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_38.PNG" width="500" />
+
+
+
+No pattern was left since there’s no correlations out of the threshold. 
+
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_39.PNG" width="500" />
+
+Seasonality is not totally included, but other correlations were well covered.
+
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_40.PNG" width="500" />
+
+
+### Result:
+Both the Seasonal ARIMA model and auto ARIMA model well captured all patterns of partitioned data set. 
+Regression model with trend,Regression model with trend, AR(2) model--> failed to capture
+Therefore, need AR(1) and trailing ma model for residuals. 
+
+
+
+## Two-level forecasts <a name = "Conclusion"></a>
+
+Two-level models include 6 combinations. The first three are a regression model with linear trend plus AR(1) model for its residuals, regression model with linear trend and seasonality plus AR(1) model for its residuals, AR(2) model plus AR(1) model for its residuals.
+
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_30.PNG" width="500" />
+
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_31.PNG" width="500" />
+
+
+### Result:
+AR(2) model with trailing ma was better. Therefore, choose 3 models with best accuracy for forecasting:
+two-level model: AR(2) model+trailing MA residuals
+one-level model: Seasonal ARIMA, auto ARIMA
+
+
+## Predict housing price: <a name = "Conclusion"></a>
+### Apply entire data set to those three models to predict the housing price for the future twelve months.  
+
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_32.PNG" width="500" />
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_33.PNG" width="500" />
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_34.PNG" width="500" />
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_35.PNG" width="500" />
+<img src="https://github.com/YingHu1234/HousingPrice/blob/main/img/R_36.PNG" width="500" />
+
 ## 🎉 Conclusion <a name = "Conclusion"></a>
 
-In conclusion,  it is very important to figure out the label and features in classification. Also, testing a model's accuracy is necessary before applying it to a model for prediction. This prediction can help set up the selling price for increasing revenue. 
+In conclusion,  regression models are good at capturing trends and seasonality of datasets. Trailing MA works well in catching autocorrelation of residuals. Seasonal ARIMA models and auto ARIMA models can do both. However, for the validation dataset, none of them, 1-level models or 2-level models, get better accuracy than the naive model. Since the seasonal ARIMA model and the auto ARIMA model well incorporate the whole patterns of the dataset, we decide to keep them in forecasting for the entire dataset.
+
+AR models are used to identify relationships between time series lags and apply them in forecasting, but do not include possible relationships between autocorrelation terms of forecast residuals. We build a 2-level model with AR(2) model and a trailing MA for the residuals, which covers most patterns of the partitioned dataset. It produces a more accurate forecast than the naive model.
+Thus we find the best model for the validation dataset is the 2-level model with AR(2) plus trailing MA of the residuals. Applying those forecasts to our entire dataset, we found that the most accurate two forecasts are the 2-level forecast with AR(2) model plus trailing MA for the residuals, and the seasonal ARIMA model. Both have similar low MAPE and RMSE, much more accurate than the naive forecast.
+
