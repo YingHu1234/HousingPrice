@@ -29,11 +29,14 @@
 # 🍯 Summary <a name = "Summary"></a>
 This summary summarizes the steps of getting the forecast by utilizing time series analysis. The first step was to apply the predictability test for the data set. The second step was to process the partition and apply it into one-level forecast models to test which model has the best fit and less overfitting. The third step was to check the performance. The last step was to choose the top two models with the highest accuracy and apply these models to the entire dataset to predict the numbers for the next periods. 
 
-<img src="https://media.giphy.com/media/xULW8JcEC9HUrJjHB6/giphy.gif" width="400" />
 
 ### Prerequisites
 
 Power BI, SQL, Python or Jupyter Notebook, R
+
+
+<img src="https://media.giphy.com/media/xULW8JcEC9HUrJjHB6/giphy.gif" width="400" />
+
 
 
 # 🍦 Visualization <a name = "PowerBI"></a>
